@@ -1,0 +1,173 @@
+<html>
+<!-- DW6 -->
+<head>
+ 
+<title>form Up/Down Key</title>
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p><a name="body"></a>
+<script language="javascript" type="text/javascript" src="./jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="./jquery.hotkeys-0.7.8.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var focusElem;  // フォーカスされたオブジェクトそのもの
+var jFormElem;  // フォーム内のエレメント一覧（jQueryオブジェクト）
+var jFormLeng;  // エレメントの数
+
+$(document).ready( function() 
+{
+	// フォーム要素の配列を生成。
+	jFormElem = 
+		$( 'form' ).map( function() {
+			var ele = $.makeArray( this.elements );
+			return ele;
+		}).filter( function() {
+			if( this.type == 'hidden' ) {
+				return false;
+			}
+			return true;
+		}).each( function(i) {
+			$(this).attr( 'focusIndex', i );
+		});
+	jFormLeng = jFormElem.length;
+	
+	// フォームエレメントがフォーカスされたら記録。
+	$(jFormElem).focus( function() {
+		focusElem = jQuery( this );
+	});
+	// 要素#0にフォーカスを当てる。
+	jFormElem.get(0).focus();
+	
+	// DOWNキーが押された場合の処理。
+	$(jFormElem).bind( 'keydown', 'down', function( event ) 
+	{
+		var keyPropagate = true;
+		if( !focusElem ) return keyPropagate;
+		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
+		if(  $(focusElem).attr( 'type' ) == 'textarea' ) return keyPropagate;
+		
+		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
+		
+		if( fIndex == jFormLeng-1 ) {
+			$(jFormElem).get(0).focus();
+		}
+		else {
+			$(jFormElem).get( fIndex+1 ).focus();
+		}
+		keyPropagate = false;
+		return keyPropagate;
+	});
+	// UPキーが押された場合の処理。
+	$(jFormElem).bind( 'keydown', 'up', function( event ) 
+	{
+		var keyPropagate = true;
+		if( !focusElem ) return keyPropagate;
+		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
+		if(  $(focusElem).attr( 'type' ) == 'textarea' ) return keyPropagate;
+		
+		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
+		if( fIndex == 0 ) {
+			$(jFormElem).get( jFormLeng-1 ).focus();
+		} 
+		else {
+			$(jFormElem).get( fIndex-1 ).focus();
+		}
+		keyPropagate = false;
+		return keyPropagate;
+	});
+});
+-->
+</script>
+</p>
+<h1>Up/Down form with ↑↓key</h1>
+<p>  Please use up/down keys to navigate through html form, except textarea... </p>
+<form name="form2" method="post" action="" id="form1">
+<table width="600" border="1" cellpadding="2" cellspacing="0" bordercolor="#999999">
+  <tr align="center" class="tdTitleMed">
+    <td width="154" bgcolor="#F0F0F0"><strong>項目名</strong></td>
+    <td width="432" bgcolor="#F0F0F0"><strong>設定値</strong></td>
+  </tr>
+  <tr>
+    <td class="tdTitle">氏名</td>
+    <td class="tdValue"><input name="addr_name" type="text" id="addr_name" style="ime-mode: active;" size="40">
+    </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">性別</td>
+    <td class="tdValue"><INPUT TYPE='radio' NAME='gender' VALUE='1' ID='gender_1'>
+        <LABEL FOR='gender_1'>男性</LABEL>
+      &nbsp;
+      <INPUT TYPE='radio' NAME='gender' VALUE='2' ID='gender_2'>
+      <LABEL FOR='gender_2'>女性</LABEL>
+      &nbsp; </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">海外住所フラグ</td>
+    <td class="tdValue"><INPUT type="checkbox" NAME='addr_oversea_flag_1' VALUE='1' ID='ID_addr_oversea_flag_1' checked>
+        <LABEL FOR='ID_addr_oversea_flag_1'>国内</LABEL>
+      &nbsp;
+      <INPUT TYPE='checkbox' NAME='ID_addr_oversea_flag_2' VALUE='2' ID='ID_addr_oversea_flag_2'>
+      <LABEL FOR='ID_addr_oversea_flag_2'>海外</LABEL>
+      &nbsp; </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">郵便番号</td>
+    <td class="tdValue"><input name="addr_post_code1" type="text" id="addr_post_code1" style="ime-mode: inactive;" size="5" maxlength="4">
+      -
+      <input name="addr_post_code2" type="text" id="addr_post_code2" style="ime-mode: inactive;" size="5" maxlength="4">
+        <input type="button" name="btn_find_yubin" value="〒検索" onClick="javascript:open_zip1( 'addr_post_code1', 'addr_post_code2' );">
+    </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">都道府県</td>
+    <td class="tdValue"><select name="addr_pref_code">
+      <option value="00">都道府県の選択</option>
+      <option value="08">茨城県</option>
+      <option value="09">栃木県</option>
+      <option value="10">群馬県</option>
+      <option value="11">埼玉県</option>
+      <option value="12">千葉県</option>
+      <option value="13">東京都</option>
+      <option value="14">神奈川県</option>
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">住所１</td>
+    <td class="tdValue"><input type="text" name="addr_address1" size="40" style="ime-mode: active;">
+    </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">隠しタグ</td>
+    <td class="tdValue"><input type='hidden' name='hidden_tag' value='hidden value'>
+      &nbsp;←ここに隠しタグ</td>
+  </tr>
+  <tr>
+    <td class="tdTitle">電話番号</td>
+    <td class="tdValue"><input type="text" name="addr_tel" size="14" style="ime-mode: inactive;">
+    </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">パスワード</td>
+    <td class="tdValue"><input type="password" name="addr_tel" size="14" value="password" style="ime-mode: inactive;">
+    </td>
+  </tr>
+  <tr>
+    <td class="tdTitle">コメント</td>
+    <td class="tdValue"><textarea name="addr_tel" cols="30" rows="4" style="ime-mode: inactive;">テキストエリア</textarea>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" class="tdTitle"><input type="submit" name="Submit" value="確認（サブミット）ボタン">
+      
+      <input type="reset" name="Reset" value="リセット"></td>
+  </tr>
+</table>
+</form>
+<br>
+<br>
+</body>
+</html>
