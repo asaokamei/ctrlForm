@@ -28,7 +28,7 @@ $(document).ready( function()
 			}
 			return true;
 		}).each( function(i) {
-			$(this).attr( 'focusIndex', i );
+			$(this).data( 'focusIndex', i.toString() );
 		});
 	jFormLeng = jFormElem.length;
 	
@@ -47,9 +47,9 @@ $(document).ready( function()
 	{
 		var keyPropagate = true;
 		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
+		if( !$(focusElem).data( 'focusIndex' ) ) return keyPropagate;
 		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
+		var fIndex = parseInt( $(focusElem).data( 'focusIndex' ) );
 		
 		if( fIndex == jFormLeng-1 ) {
 			$(jFormElem).get(0).focus();
@@ -70,9 +70,9 @@ $(document).ready( function()
 	{
 		var keyPropagate = true;
 		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
+		if( !$(focusElem).data( 'focusIndex' ) ) return keyPropagate;
 		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
+		var fIndex = parseInt( $(focusElem).data( 'focusIndex' ) );
 		if( fIndex == 0 ) {
 			$(jFormElem).get( jFormLeng-1 ).focus();
 		} 
@@ -92,9 +92,9 @@ $(document).ready( function()
 	{
 		var keyPropagate = true;
 		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
+		if( !$(focusElem).data( 'focusIndex' ) ) return keyPropagate;
 		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
+		var fIndex = parseInt( $(focusElem).data( 'focusIndex' ) );
 		
 		// テーブル・配列の処理
 		var fName  = $(focusElem).attr( 'name' );
@@ -107,7 +107,7 @@ $(document).ready( function()
 			var first_item    = '-1'; // 同じ配列名で最初の項目
 			$( jFormElem ).each( function( idx ) 
 			{
-				var this_fIdx     = $( this ).attr( 'focusIndex' );
+				var this_fIdx     = $( this ).data( 'focusIndex' );
 				var this_name     = $( this ).attr( 'name' );
 				var this_nameBody = this_name.match( /^([\w]+)/ )[0];
 				if( this_nameBody == fNameBody ) 
@@ -167,9 +167,9 @@ $(document).ready( function()
 	{
 		var keyPropagate = true;
 		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
+		if( !$(focusElem).data( 'focusIndex' ) ) return keyPropagate;
 		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
+		var fIndex = parseInt( $(focusElem).data( 'focusIndex' ) );
 		
 		// テーブル・配列の処理
 		var fName  = $(focusElem).attr( 'name' );
@@ -182,7 +182,7 @@ $(document).ready( function()
 			var last_item     = '-1';
 			$( jFormElem ).each( function( idx )
 			{
-				var this_fIdx     = $( this ).attr( 'focusIndex' );
+				var this_fIdx     = $( this ).data( 'focusIndex' );
 				var this_name     = $( this ).attr( 'name' );
 				var this_nameBody = this_name.match( /^([\w]+)/ )[0];
 				if( this_nameBody == fNameBody ) 
