@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1 {
+  background: bisque;
+  padding: 3px 0px 3px 5px;
+}
+table {
+  border: chocolate solid 2px;
+  width: 80%;
+  border-collapse:collapse;
+}
+th {
+  background-color: bisque;
+  border: bisque solid 1px;
+  padding:3px;
+}
+td {
+  border: bisque solid 1px;
+  padding:3px;
+}
