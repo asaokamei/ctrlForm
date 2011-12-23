@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-<title>jQuery::Up/Downキーでフォームを移動（デモ版）</title>
+<title>formUpDown/a jQuery plug-in demo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
   h1 {
@@ -29,13 +29,13 @@
 <script type="text/javascript" src="./jquery.hotkeys-0.7.8.js"></script>
 <script type="text/javascript">
 <!--
-var focusElem;  // フォーカスされたオブジェクトそのもの
-var jFormElem;  // フォーム内のエレメント一覧（jQueryオブジェクト）
-var jFormLeng;  // エレメントの数
+var focusElem;  // points to an element that is currently focused.
+var jFormElem;  // list of elements (jquery object) inside a form.
+var jFormLeng;  // number of elements.
 
 $(document).ready( function() 
 {
-	// フォーム要素の配列を生成。
+	// generate an array of elements inside a form.
 	jFormElem = 
 		$( 'form' ).map( function() {
 			var ele = $.makeArray( this.elements );
@@ -50,11 +50,11 @@ $(document).ready( function()
 		});
 	jFormLeng = jFormElem.length;
 	
-	// フォームエレメントがフォーカスされたら記録。
+	// set focusElem if an element is focused. 
 	$(jFormElem).focus( function() {
 		focusElem = jQuery( this );
 	});
-	// 要素#0にフォーカスを当てる。
+	// focus the first element.
 	jFormElem.get(1).focus();
     
 	// +--------------------------------------------------------------+
@@ -114,15 +114,15 @@ $(document).ready( function()
 		
 		var fIndex = parseInt( $(focusElem).data( 'focusIndex' ) );
 		
-		// テーブル・配列の処理
+		// find an element to focus.
 		var fName  = $(focusElem).attr( 'name' );
 		if( fName.match( /\[/ ) ) 
 		{
 			var fNameBody     = fName.match( /^([\w]+)/ )[0];
-			var toFocus_idx   = '-1'; // 同じ配列名で次の項目
-			var follow_item   = '-1'; // 配列外で、配列の次の項目
-			var top_item      = '-1'; // 配列外で、最初の項目
-			var first_item    = '-1'; // 同じ配列名で最初の項目
+			var toFocus_idx   = '-1'; // next element with same table name. 
+			var follow_item   = '-1'; // just the next element.
+			var top_item      = '-1'; // very first element inside the form.
+			var first_item    = '-1'; // first element with same table name. 
 			$( jFormElem ).each( function( idx ) 
 			{
 				var this_fIdx     = $( this ).data( 'focusIndex' );
@@ -189,15 +189,15 @@ $(document).ready( function()
 		
 		var fIndex = parseInt( $(focusElem).data( 'focusIndex' ) );
 		
-		// テーブル・配列の処理
+		// find an element to focus.
 		var fName  = $(focusElem).attr( 'name' );
 		if( fName.match( /\[/ ) ) 
 		{
 			var fNameBody = fName.match( /^([\w]+)/ )[0];
-			var toFocus_idx   = '-1';
-			var prev_item     = '-1'; // 配列外で、配列の前の項目
-			var bottom_item   = '-1'; // 配列外で、最後の項目
-			var last_item     = '-1';
+			var toFocus_idx   = '-1'; // previous element with same table name. 
+			var prev_item     = '-1'; // just the previous element.
+			var bottom_item   = '-1'; // the last element with same table name. 
+			var last_item     = '-1'; // the last element inside the form.
 			$( jFormElem ).each( function( idx )
 			{
 				var this_fIdx     = $( this ).data( 'focusIndex' );
@@ -254,27 +254,27 @@ $(document).ready( function()
 <table>
   <tbody>
     <tr>
-      <th width="78">項目名</th>
-      <th width="508">設定値</th>
+      <th width="78">ITEMS</th>
+      <th width="508">VALUES</th>
     </tr>
     <tr>
-      <td nowrap>テーブル名称</td>
+      <td nowrap>Name of Table</td>
       <td><label>
         <input name="table_name" type="text" id="table_name" value="table name here..." size="40">
       </label></td>
     </tr>
     <tr>
-      <td nowrap>テーブル</td>
+      <td nowrap>Table</td>
       <td><table>
         <tr>
           <th>#</th>
-          <th><span>氏名</span></th>
-          <th><span>性別</span></th>
-          <th><span>海外<br>
+          <th><span>name</span></th>
+          <th><span>gender</span></th>
+          <th><span>oversea<br>
             flag </span></th>
-          <th><span>隠し<br>
-            タグ</span></th>
-          <th><span>パスワード</span></th>
+          <th><span>hidden<br>
+            tag</span></th>
+          <th><span>password</span></th>
         </tr>
         <tr>
           <td>1</td>
@@ -331,13 +331,13 @@ $(document).ready( function()
       </table></td>
     </tr>
     <tr>
-      <td nowrap>コメント</td>
-      <td class="tdValue"><textarea name="comment" id="comment" cols="30" rows="4" style="ime-mode: inactive;">テキストエリア</textarea>
+      <td nowrap>Comment</td>
+      <td class="tdValue"><textarea name="comment" id="comment" cols="30" rows="4" style="ime-mode: inactive;">a text area here...</textarea>
       </td>
     </tr>
     <tr>
-      <td colspan="2" align="center"><input id="submit_button" focusindex="13" name="Submit" value="確認（サブミット）ボタン" type="submit">
-          <input id="reset_button" focusindex="14" name="Reset" value="リセット" type="reset"></td>
+      <td colspan="2" align="center"><input id="submit_button" focusindex="13" name="Submit" value="This is Submit Button" type="submit">
+          <input id="reset_button" focusindex="14" name="Reset" value="This is Reset" type="reset"></td>
     </tr>
   </tbody>
 </table>
