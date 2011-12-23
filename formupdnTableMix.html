@@ -9,11 +9,25 @@
 <script type="text/javascript" src="./jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="./jquery.hotkeys-0.7.8.js"></script>
 <SCRIPT type="text/javascript" src="./ctrlUDForm.js"></script>
-<h1>ctrlUDForm: table layout form</h1>
+<h1>ctrlUDForm: mixed table and normal layout form</h1>
 <p>Please use ctrl+up/down/left/right keys to navigate through html form in a row-table...<br>
 </p>
 <form name="form2" method="post" action="" id="form1">
 <table>
+  <tbody>
+    <tr>
+      <th width="78">ITEMS</th>
+      <th width="508">VALUES</th>
+    </tr>
+    <tr>
+      <td nowrap>Name of Table</td>
+      <td><label>
+        <input name="table_name" type="text" id="table_name" value="table name here..." size="40">
+      </label></td>
+    </tr>
+    <tr>
+      <td nowrap>Table</td>
+      <td><table>
         <tr>
           <th>#</th>
           <th><span>name</span></th>
@@ -76,7 +90,19 @@
           <td><textarea name="password[2]" cols="10" rows="1" id="password[2]" style="ime-mode: inactive;">password</textarea>
           </td>
         </tr>
-      </table>
+      </table></td>
+    </tr>
+    <tr>
+      <td nowrap>Comment</td>
+      <td class="tdValue"><textarea name="comment" id="comment" cols="30" rows="4" style="ime-mode: inactive;">a text area here...</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input id="submit_button" focusindex="13" name="Submit" value="This is Submit Button" type="submit">
+          <input id="reset_button" focusindex="14" name="Reset" value="This is Reset" type="reset"></td>
+    </tr>
+  </tbody>
+</table>
 </form>
 <br>
 <br>
