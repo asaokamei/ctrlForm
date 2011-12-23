@@ -1,15 +1,33 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-<!-- DW6 -->
 <title>jQuery::Up/Downキーでフォームを移動（デモ版）</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="formupdn_files/wsjp2.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  h1 {
+    background: bisque;
+    padding: 3px 0px 3px 5px;
+  }
+  table {
+    border: chocolate solid 2px;
+    width: 80%;
+    border-collapse:collapse;
+  }
+  th {
+    background-color: bisque;
+    border: bisque solid 1px;
+    padding:3px;
+  }
+  td {
+    border: bisque solid 1px;
+    padding:3px;
+  }
+</style>
 </head>
-<body bgcolor="#ffffff" text="#000000">
-<a name="body"></a>
-<script language="javascript" type="text/javascript" src="./jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript" src="./jquery.hotkeys-0.7.8.js"></script>
-<script language="JavaScript">
+<body>
+<script type="text/javascript" src="./jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="./jquery.hotkeys-0.7.8.js"></script>
+<script type="text/javascript">
 <!--
 var focusElem;  // フォーカスされたオブジェクトそのもの
 var jFormElem;  // フォーム内のエレメント一覧（jQueryオブジェクト）
@@ -233,30 +251,30 @@ $(document).ready( function()
 <p>Please use ctrl+up/down/left/right keys to navigate through html form in a row-table...<br>
 </p>
 <form name="form2" method="post" action="" id="form1">
-<table border="1" bordercolor="#999999" cellpadding="2" cellspacing="0" width="600">
+<table>
   <tbody>
-    <tr class="tdTitleMed" align="center">
-      <td bgcolor="#f0f0f0" width="78"><strong>項目名</strong></td>
-      <td bgcolor="#f0f0f0" width="508"><strong>設定値</strong></td>
+    <tr>
+      <th width="78">項目名</th>
+      <th width="508">設定値</th>
     </tr>
     <tr>
-      <td nowrap class="tdTitle">テーブル名称</td>
-      <td class="tdValue"><label>
+      <td nowrap>テーブル名称</td>
+      <td><label>
         <input name="table_name" type="text" id="table_name" value="table name here..." size="40">
       </label></td>
     </tr>
     <tr>
-      <td nowrap class="tdTitle">テーブル</td>
-      <td class="tdValue"><table width="100%" border="1" cellpadding="2" cellspacing="0" bordercolor="#999999">
+      <td nowrap>テーブル</td>
+      <td><table>
         <tr>
-          <th bgcolor="#F0F0F0">#</th>
-          <th bgcolor="#F0F0F0"><span class="tdTitle">氏名</span></th>
-          <th bgcolor="#F0F0F0"><span class="tdTitle">性別</span></th>
-          <th bgcolor="#F0F0F0"><span class="tdTitle">海外<br>
+          <th>#</th>
+          <th><span>氏名</span></th>
+          <th><span>性別</span></th>
+          <th><span>海外<br>
             flag </span></th>
-          <th bgcolor="#F0F0F0"><span class="tdTitle">隠し<br>
+          <th><span>隠し<br>
             タグ</span></th>
-          <th bgcolor="#F0F0F0"><span class="tdTitle">パスワード</span></th>
+          <th><span>パスワード</span></th>
         </tr>
         <tr>
           <td>1</td>
@@ -268,8 +286,6 @@ $(document).ready( function()
               <option value="f">Femail</option>
             </select>
             </label>
-                <label for="radio"></label>
-                <label for="label"></label>
           </td>
           <td align="center"><input name="addr_oversea_flag[0][]" id="addr_oversea_flag[0]1" value="2" type="checkbox">
           </td>
@@ -286,8 +302,6 @@ $(document).ready( function()
             <option value="m">Mail</option>
             <option value="f">Femail</option>
           </select>
-                <label for="radio"></label>
-                <label for="label"></label>
           </td>
           <td align="center"><input name="addr_oversea_flag[1][]" id="addr_oversea_flag[1]1" value="2" type="checkbox">
           </td>
@@ -317,12 +331,12 @@ $(document).ready( function()
       </table></td>
     </tr>
     <tr>
-      <td nowrap class="tdTitle">コメント</td>
+      <td nowrap>コメント</td>
       <td class="tdValue"><textarea name="comment" id="comment" cols="30" rows="4" style="ime-mode: inactive;">テキストエリア</textarea>
       </td>
     </tr>
     <tr>
-      <td colspan="2" class="tdTitle" align="center"><input id="submit_button" focusindex="13" name="Submit" value="確認（サブミット）ボタン" type="submit">
+      <td colspan="2" align="center"><input id="submit_button" focusindex="13" name="Submit" value="確認（サブミット）ボタン" type="submit">
           <input id="reset_button" focusindex="14" name="Reset" value="リセット" type="reset"></td>
     </tr>
   </tbody>
