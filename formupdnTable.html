@@ -15,20 +15,6 @@ var focusElem;  // フォーカスされたオブジェクトそのもの
 var jFormElem;  // フォーム内のエレメント一覧（jQueryオブジェクト）
 var jFormLeng;  // エレメントの数
 
-jQuery.fn.hcae = function( fn, args ) {
-        return jQuery.hcae( this, fn, args );
-};
-
-jQuery.hcae = function( obj, fn, args ) {
-        if ( obj.length == undefined )
-                for ( var i in obj )
-                        fn.apply( obj[i], args || [i, obj[i]] );
-        else
-                for ( var i = obj.length - 1; i >= 0; --i )
-                        fn.apply( obj[i], args || [i, obj[i]] );
-        return obj;
-};
-
 $(document).ready( function() 
 {
 	// フォーム要素の配列を生成。
