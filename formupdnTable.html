@@ -52,88 +52,35 @@ $(document).ready( function()
 	});
 	// 要素#0にフォーカスを当てる。
 	jFormElem.get(1).focus();
+    
+	// +--------------------------------------------------------------+
+    /**
+     * Ctrl+RIGHT: go to the next element.
+     */
+    var formRight =function( event ) 
+	{
+		var keyPropagate = true;
+		if( !focusElem ) return keyPropagate;
+		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
+		
+		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
+		
+		if( fIndex == jFormLeng-1 ) {
+			$(jFormElem).get(0).focus();
+		}
+		else {
+			$(jFormElem).get( fIndex+1 ).focus();
+		}
+		keyPropagate = false;
+		return keyPropagate;
+	};
+	$(jFormElem).bind( 'keydown', 'ctrl+right', formRight );
 	
-	// Enterキーが押された場合の処理。
-	$(jFormElem).bind( 'keydown', 'return', function( event ) 
-	{
-		var keyPropagate = true;
-		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
-		if(  $(focusElem).attr( 'type' ) == 'textarea' ) return keyPropagate;
-		if(  $(focusElem).attr( 'type' ) == 'submit' ) return keyPropagate;
-		if(  $(focusElem).attr( 'type' ) == 'reset' ) return keyPropagate;
-		if(  $(focusElem).attr( 'type' ) == 'button' ) return keyPropagate;
-		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
-		
-		if( fIndex == jFormLeng-1 ) {
-			$(jFormElem).get(0).focus();
-		}
-		else {
-			$(jFormElem).get( fIndex+1 ).focus();
-		}
-		keyPropagate = false;
-		return keyPropagate;
-	});
-	// DOWNキーが押された場合の処理。
-	$(jFormElem).bind( 'keydown', 'down', function( event ) 
-	{
-		var keyPropagate = true;
-		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
-		if(  $(focusElem).attr( 'type' ) == 'textarea' ) return keyPropagate;
-		if(  $(focusElem).is( "select" ) ) return keyPropagate;
-		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
-		
-		if( fIndex == jFormLeng-1 ) {
-			$(jFormElem).get(0).focus();
-		}
-		else {
-			$(jFormElem).get( fIndex+1 ).focus();
-		}
-		keyPropagate = false;
-		return keyPropagate;
-	});
-	// Ctrl+RIGHTキーが押された場合の処理。
-	$(jFormElem).bind( 'keydown', 'ctrl+right', function( event ) 
-	{
-		var keyPropagate = true;
-		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
-		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
-		
-		if( fIndex == jFormLeng-1 ) {
-			$(jFormElem).get(0).focus();
-		}
-		else {
-			$(jFormElem).get( fIndex+1 ).focus();
-		}
-		keyPropagate = false;
-		return keyPropagate;
-	});
-	// UPキーが押された場合の処理。
-	$(jFormElem).bind( 'keydown', 'up', function( event ) 
-	{
-		var keyPropagate = true;
-		if( !focusElem ) return keyPropagate;
-		if( !$(focusElem).attr( 'focusIndex' ) ) return keyPropagate;
-		if(  $(focusElem).attr( 'type' ) == 'textarea' ) return keyPropagate;
-		if(  $(focusElem).is( "select" ) ) return keyPropagate;
-		
-		var fIndex = parseInt( $(focusElem).attr( 'focusIndex' ) );
-		if( fIndex == 0 ) {
-			$(jFormElem).get( jFormLeng-1 ).focus();
-		} 
-		else {
-			$(jFormElem).get( fIndex-1 ).focus();
-		}
-		keyPropagate = false;
-		return keyPropagate;
-	});
-	// Ctrl+Leftキーが押された場合の処理。
-	$(jFormElem).bind( 'keydown', 'ctrl+left', function( event ) 
+    // +--------------------------------------------------------------+
+	/** 
+     * Ctrl+Left: go to the previous element.
+     */
+    var formLeft = function( event ) 
 	{
 		var keyPropagate = true;
 		if( !focusElem ) return keyPropagate;
@@ -148,9 +95,14 @@ $(document).ready( function()
 		}
 		keyPropagate = false;
 		return keyPropagate;
-	});
-	// Ctrl+DOWNキーが押された場合の処理。
-	$(jFormElem).bind( 'keydown', 'ctrl+down', function( event ) 
+	};
+	$(jFormElem).bind( 'keydown', 'ctrl+left', formLeft );
+    
+	// +--------------------------------------------------------------+
+	/**
+     * Ctrl+DOWNç go down the table or the next element.
+     */
+    var formDown = function( event ) 
 	{
 		var keyPropagate = true;
 		if( !focusElem ) return keyPropagate;
@@ -218,9 +170,14 @@ $(document).ready( function()
 		}
 		keyPropagate = false;
 		return keyPropagate;
-	});
-	// Ctrl+UPキーが押された場合の処理。
-	$(jFormElem).bind( 'keydown', 'ctrl+up', function( event ) 
+	};
+	$(jFormElem).bind( 'keydown', 'ctrl+down', formDown );
+    
+	// +--------------------------------------------------------------+
+	/**
+     * Ctrl+UP: go up the table, or go to the previous element.
+     */
+    var formUp = function( event ) 
 	{
 		var keyPropagate = true;
 		if( !focusElem ) return keyPropagate;
@@ -281,7 +238,8 @@ $(document).ready( function()
 		}
 		keyPropagate = false;
 		return keyPropagate;
-	});
+	};
+	$(jFormElem).bind( 'keydown', 'ctrl+up', formUp );
 });
 -->
 </script>
