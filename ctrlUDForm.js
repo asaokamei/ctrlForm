@@ -61,7 +61,8 @@
             return keyPropagate;
         };
         $(jFormElem).bind( 'keydown', 'ctrl+right', formRight );
-
+        $(jFormElem).bind( 'keydown', 'meta+right', formRight );
+        
         // +--------------------------------------------------+
         /** 
          * Ctrl+Left: go to the previous element.
@@ -83,6 +84,7 @@
             return keyPropagate;
         };
         $(jFormElem).bind( 'keydown', 'ctrl+left', formLeft );
+        $(jFormElem).bind( 'keydown', 'meta+left', formLeft );
 
         // +--------------------------------------------------+
         /**
@@ -158,6 +160,7 @@
             return keyPropagate;
         };
         $(jFormElem).bind( 'keydown', 'ctrl+down', formDown );
+        $(jFormElem).bind( 'keydown', 'meta+down', formDown );
 
         // +--------------------------------------------------+
         /**
@@ -226,6 +229,7 @@
             return keyPropagate;
         };
         $(jFormElem).bind( 'keydown', 'ctrl+up', formUp );
+        $(jFormElem).bind( 'keydown', 'meta+up', formUp );
     };
 })(jQuery);
 
