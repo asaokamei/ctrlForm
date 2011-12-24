@@ -1,17 +1,18 @@
 // JavaScript Document
 
-(function($){
+(function($) {
     // +--------------------------------------------------------------+
     /**
      * ctrlUDForm (control Up/Down in Form) plug-in for jQuery. 
      */
-    $.fn.ctrlUDForm = function( config ){
+    $.fn.ctrlUDForm = function( config ) {
         // defaults
-        var defaults={
+        var defaults = {
             /** element # to focus */
-            focus: 0
+            focus: 0,
+            control: [ 'ctrl', 'meta' ]
         }
-        var options=$.extend(defaults, config);
+        var options = $.extend( defaults, config );
         
         var focusElem;  // points to an element that is currently focused.
         var jFormElem;  // list of elements (jquery object) inside a form.
@@ -38,12 +39,19 @@
         });
         // focus the first element.
         jFormElem.get(options.focus).focus();
-
+        
+        // bind with control+arrow keys
+        $.each( options.control, function( idx, val ) {
+            $(jFormElem).bind( 'keydown', val + '+right', formRight );
+            $(jFormElem).bind( 'keydown', val + '+left',  formLeft );
+            $(jFormElem).bind( 'keydown', val + '+down',  formDown );
+            $(jFormElem).bind( 'keydown', val + '+up',    formUp );
+        });
         // +--------------------------------------------------+
         /**
          * Ctrl+RIGHT: go to the next element.
          */
-        var formRight =function( event ) 
+        function formRight( event ) 
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -60,14 +68,12 @@
             keyPropagate = false;
             return keyPropagate;
         };
-        $(jFormElem).bind( 'keydown', 'ctrl+right', formRight );
-        $(jFormElem).bind( 'keydown', 'meta+right', formRight );
         
         // +--------------------------------------------------+
         /** 
          * Ctrl+Left: go to the previous element.
          */
-        var formLeft = function( event ) 
+        function formLeft( event ) 
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -83,14 +89,11 @@
             keyPropagate = false;
             return keyPropagate;
         };
-        $(jFormElem).bind( 'keydown', 'ctrl+left', formLeft );
-        $(jFormElem).bind( 'keydown', 'meta+left', formLeft );
-
         // +--------------------------------------------------+
         /**
          * Ctrl+DOWN go down the table or the next element.
          */
-        var formDown = function( event ) 
+        function formDown( event ) 
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -159,14 +162,11 @@
             keyPropagate = false;
             return keyPropagate;
         };
-        $(jFormElem).bind( 'keydown', 'ctrl+down', formDown );
-        $(jFormElem).bind( 'keydown', 'meta+down', formDown );
-
         // +--------------------------------------------------+
         /**
          * Ctrl+UP: go up the table, or go to the previous element.
          */
-        var formUp = function( event ) 
+        function formUp( event ) 
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -228,8 +228,6 @@
             keyPropagate = false;
             return keyPropagate;
         };
-        $(jFormElem).bind( 'keydown', 'ctrl+up', formUp );
-        $(jFormElem).bind( 'keydown', 'meta+up', formUp );
     };
 })(jQuery);
 
