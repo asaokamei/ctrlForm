@@ -86,7 +86,7 @@
 
         // +--------------------------------------------------+
         /**
-         * Ctrl+DOWNç go down the table or the next element.
+         * Ctrl+DOWN go down the table or the next element.
          */
         var formDown = function( event ) 
         {
@@ -144,7 +144,7 @@
                     $( jFormElem ).get( first_item ).focus();
                 }
                 //alert( top_item + ' ' + follow_item );
-                return;
+                return false;
                 //alert( fNameBody[0] );
             }
 
@@ -212,7 +212,7 @@
                 else if( last_item !== '-1' ) {
                     $( jFormElem ).get( last_item ).focus();
                 }
-                return;
+                return false;
                 //alert( fNameBody[0] );
             }
 
