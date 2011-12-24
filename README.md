@@ -32,10 +32,11 @@ Options are:
 * `$('form').ctrlUDForm( {focus:3} );` 
 
     focus on 3rd elemnt in the form. default is 0.
+
 * `$('form').ctrlUDForm( {control:'ctrl'} );` 
 
     use ctrl key only to control the form. 
-  default is ['ctrl','meta'].
+    default is ['ctrl','meta'].
 
 
 Table Structure
