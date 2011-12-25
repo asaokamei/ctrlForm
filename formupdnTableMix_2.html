@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>formUpDown/a jQuery plug-in demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="formupdn.css" />
+</head>
+<body>
+<script type="text/javascript" src="./vendor/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="./vendor/jquery.hotkeys.js"></script>
+<SCRIPT type="text/javascript" src="./ctrlUDForm.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('form').ctrlUDForm();
+});
+</script>
+<h1>ctrlUDForm: mixed table and normal layout form</h1>
+<p>Please use ctrl+up/down/left/right keys to navigate through html form in a row-table...<br>
+</p>
+<form name="form2" method="post" action="" id="form1">
+<table>
+  <tbody>
+    <tr>
+      <th width="78">ITEMS</th>
+      <th width="508">VALUES</th>
+    </tr>
+    <tr>
+      <td nowrap>Name of Table</td>
+      <td><label>
+        <input name="table_name" type="text" id="table_name" value="table name here..." size="40">
+      </label></td>
+    </tr>
+    <tr>
+      <td nowrap>Table</td>
+      <td><table>
+        <tr>
+          <th>#</th>
+          <th><span>name</span></th>
+          <th><span>gender</span></th>
+          <th><span>oversea<br>
+            flag </span></th>
+          <th><span>hidden<br>
+            tag</span></th>
+          <th><span>password</span></th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><input name="name[0]" id="name[0]" style="ime-mode: active;" size="20" type="text">
+          </td>
+          <td align="center"><label>
+            <select name="gender[0]" id="gender[0]">
+              <option value="m">Mail</option>
+              <option value="f">Femail</option>
+            </select>
+            </label>
+          </td>
+          <td align="center"><input name="addr_oversea_flag[0][]" id="addr_oversea_flag[0]1" value="2" type="checkbox">
+          </td>
+          <td><input name="hidden_tag[0]" type="hidden" value="hidden value">
+          </td>
+          <td><textarea name="password[0]" cols="10" rows="1" id="password[0]" style="ime-mode: inactive;">password</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><input name="name[1]" id="name[1]" style="ime-mode: active;" size="20" type="text">
+          </td>
+          <td align="center"><select name="gender[1]" id="gender[1]">
+            <option value="m">Mail</option>
+            <option value="f">Femail</option>
+          </select>
+          </td>
+          <td align="center"><input name="addr_oversea_flag[1][]" id="addr_oversea_flag[1]1" value="2" type="checkbox">
+          </td>
+          <td><input name="hidden_tag[1]" type="hidden" value="hidden value">
+          </td>
+          <td><textarea name="password[1]" cols="10" rows="1" id="password[1]" style="ime-mode: inactive;">password</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><input name="name[2]" id="name[2]" style="ime-mode: active;" size="20" type="text">
+          </td>
+          <td align="center"><select name="gender[2]" id="gender[2]">
+            <option value="m">Mail</option>
+            <option value="f">Femail</option>
+          </select>
+                <label for="radio"></label>
+                <label for="label"></label>
+          </td>
+          <td align="center"><input name="addr_oversea_flag[2][]" id="addr_oversea_flag[2]1" value="2" type="checkbox">
+          </td>
+          <td><input name="hidden_tag[2]" type="hidden" value="hidden value">
+          </td>
+          <td><textarea name="password[2]" cols="10" rows="1" id="password[2]" style="ime-mode: inactive;">password</textarea>
+          </td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input id="submit_button" focusindex="13" name="Submit" value="This is Submit Button" type="submit">
+          <input id="reset_button" focusindex="14" name="Reset" value="This is Reset" type="reset"></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+<br>
+<br>
+</body>
+</html>

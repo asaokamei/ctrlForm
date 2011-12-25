@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>form Up/Down Key</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="formupdn.css" />
+</head>
+<body>
+<p><a name="body"></a>
+<script type="text/javascript" src="./vendor/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="./vendor/jquery.hotkeys.js"></script>
+<SCRIPT type="text/javascript" src="./ctrlUDForm.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('form').ctrlUDForm( {focus:5} );
+});
+</script>
+</p>
+<h1>ctrlUDForm: a simple form case</h1>
+<p>  Please use up/down keys to navigate through html form, except textarea... </p>
+<h2>this is form #1</h2>
+<form name="form1" method="post" action="" id="form1">
+<table>
+  <tr align="center">
+    <th width="154"><strong>ITEMS</strong></td>
+    <th width="432"><strong>VALUES</strong></th>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><input name="addr_name" type="text" id="addr_name" style="ime-mode: active;" size="40">
+    </td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td><INPUT TYPE='radio' NAME='gender' VALUE='1' ID='gender_1'>
+        <LABEL FOR='gender_1'>男性</LABEL>
+      &nbsp;
+      <INPUT TYPE='radio' NAME='gender' VALUE='2' ID='gender_2'>
+      <LABEL FOR='gender_2'>女性</LABEL>
+      &nbsp; </td>
+  </tr>
+  <tr>
+    <td>Oversea flag</td>
+    <td><INPUT type="checkbox" NAME='addr_oversea_flag_1' VALUE='1' ID='ID_addr_oversea_flag_1' checked>
+        <LABEL FOR='ID_addr_oversea_flag_1'>domestic</LABEL>
+      &nbsp;
+      <INPUT TYPE='checkbox' NAME='ID_addr_oversea_flag_2' VALUE='2' ID='ID_addr_oversea_flag_2'>
+      <LABEL FOR='ID_addr_oversea_flag_2'>oversea</LABEL>
+      &nbsp; </td>
+  </tr>
+  <tr>
+    <td>post code</td>
+    <td><input name="addr_post_code1" type="text" id="addr_post_code1" style="ime-mode: inactive;" size="5" maxlength="4">
+      -
+      <input name="addr_post_code2" type="text" id="addr_post_code2" style="ime-mode: inactive;" size="5" maxlength="4">
+        <input type="button" name="btn_find_yubin" value="〒検索" onClick="javascript:open_zip1( 'addr_post_code1', 'addr_post_code2' );">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="Submit" value="A Submit Button">
+      
+      <input type="reset" name="Reset" value="A Reset Button"></td>
+  </tr>
+</table>
+</form>
+<h2>this is form #2</h2>
+<form name="form2" action="" method="post" id="form2">
+<table>
+  <tr>
+    <th width="154"><strong>ITEMS</strong></td>
+    <th width="432"><strong>VALUES</strong></th>
+  </tr>
+  <tr>
+    <td>region</td>
+    <td><select name="addr_pref_code">
+      <option value="00">select a region</option>
+      <option value="08">Asia</option>
+      <option value="09">N.America</option>
+      <option value="10">S.America</option>
+      <option value="11">Africa</option>
+      <option value="12">Australia</option>
+      <option value="13">Europe</option>
+      <option value="14">hmm, Japan?</option>
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><input type="text" name="addr_address1" size="40" style="ime-mode: active;">
+    </td>
+  </tr>
+  <tr>
+    <td>Hidden tag</td>
+    <td><input type='hidden' name='hidden_tag' value='hidden value'>
+      &nbsp;←hidden tag here</td>
+  </tr>
+  <tr>
+    <td>Tel</td>
+    <td><input type="text" name="addr_tel" size="14" style="ime-mode: inactive;">
+    </td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" name="addr_tel" size="14" value="password" style="ime-mode: inactive;">
+    </td>
+  </tr>
+  <tr>
+    <td>Comment</td>
+    <td><textarea name="addr_tel" cols="30" rows="4" style="ime-mode: inactive;">テキストエリア</textarea>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="Submit" value="A Submit Button">
+      
+      <input type="reset" name="Reset" value="A Reset Button"></td>
+  </tr>
+</table>
+</form>
+<br>
+<br>
+</body>
+</html>
