@@ -11,7 +11,7 @@
             /** element # to focus */
             focus: 0,
             control: [ 'ctrl', 'meta' ]
-        }
+        };
         var options = $.extend( defaults, config );
         
         var focusElem;  // points to an element that is currently focused.
@@ -24,10 +24,8 @@
                 var ele = $.makeArray( this.elements );
                 return ele;
             }).filter( function() {
-                if( this.type == 'hidden' ) {
-                    return false;
-                }
-                return true;
+                return this.type != 'hidden';
+
             }).each( function(i) {
                 $(this).data( 'focusIndex', i.toString() );
             });
@@ -51,7 +49,7 @@
         /**
          * Ctrl+RIGHT: go to the next element.
          */
-        function formRight( event ) 
+        function formRight()
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -67,13 +65,13 @@
             }
             keyPropagate = false;
             return keyPropagate;
-        };
+        }
         
         // +--------------------------------------------------+
         /** 
          * Ctrl+Left: go to the previous element.
          */
-        function formLeft( event ) 
+        function formLeft()
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -88,12 +86,12 @@
             }
             keyPropagate = false;
             return keyPropagate;
-        };
+        }
         // +--------------------------------------------------+
         /**
          * Ctrl+DOWN go down the table or the next element.
          */
-        function formDown( event ) 
+        function formDown()
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -110,7 +108,7 @@
                 var follow_item   = '-1'; // just the next element.
                 var top_item      = '-1'; // very first element inside the form.
                 var first_item    = '-1'; // first element with same table name. 
-                $( jFormElem ).each( function( idx ) 
+                $( jFormElem ).each( function()
                 {
                     var this_fIdx     = $( this ).data( 'focusIndex' );
                     var this_name     = $( this ).attr( 'name' );
@@ -161,12 +159,12 @@
             }
             keyPropagate = false;
             return keyPropagate;
-        };
+        }
         // +--------------------------------------------------+
         /**
          * Ctrl+UP: go up the table, or go to the previous element.
          */
-        function formUp( event ) 
+        function formUp()
         {
             var keyPropagate = true;
             if( !focusElem ) return keyPropagate;
@@ -183,7 +181,7 @@
                 var prev_item     = '-1'; // just the previous element.
                 var bottom_item   = '-1'; // the last element with same table name. 
                 var last_item     = '-1'; // the last element inside the form.
-                $( jFormElem ).each( function( idx )
+                $( jFormElem ).each( function()
                 {
                     var this_fIdx     = $( this ).data( 'focusIndex' );
                     var this_name     = $( this ).attr( 'name' );
@@ -227,7 +225,7 @@
             }
             keyPropagate = false;
             return keyPropagate;
-        };
+        }
     };
 })(jQuery);
 
