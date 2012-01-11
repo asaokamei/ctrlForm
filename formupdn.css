@@ -2,12 +2,18 @@
 /* CSS Document */
 
 h1 {
-  background: royalblue;
-  padding: 3px 0px 3px 5px;
+    background: #f0f8ff;
+    font-size: 18px;
+    padding: 3px 0px 3px 5px;
+    border-left: 3px solid #6495ed;
+    border-bottom: 1px dotted #6495ed;
 }
 h2 {
-  background: darkturquoise;
-  padding: 1px 0px 1px 5px;
+    background: #f0f8ff;
+    font-size: 14px;
+    padding: 1px 0px 1px 5px;
+    border-left: 3px solid #6495ed;
+    border-bottom: 1px dotted #6495ed;
 }
 table {
   border: chocolate solid 2px;
@@ -15,11 +21,11 @@ table {
   border-collapse:collapse;
 }
 th {
-  background-color: bisque;
-  border: bisque solid 1px;
+  background-color: #faebd7;
+  border: chocolate solid 1px;
   padding:3px;
 }
 td {
   border: bisque solid 1px;
-  padding:3px;
+  padding:2px;
 }
