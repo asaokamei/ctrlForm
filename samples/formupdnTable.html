@@ -3,36 +3,22 @@
 <head>
 <title>formUpDown/a jQuery plug-in demo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="formupdn.css" />
+<link rel="stylesheet" type="text/css" href="../formupdn.css" />
 </head>
 <body>
-<script type="text/javascript" src="./vendor/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="./vendor/jquery.hotkeys.js"></script>
-<SCRIPT type="text/javascript" src="ctrlForm.js"></script>
+<script type="text/javascript" src="../vendor/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="../vendor/jquery.hotkeys.js"></script>
+<SCRIPT type="text/javascript" src="../ctrlForm.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $('form').ctrlUDForm();
 });
 </script>
-<h1>ctrlUDForm: mixed table and normal layout form</h1>
+<h1>ctrlUDForm: table layout form</h1>
 <p>Please use ctrl+up/down/left/right keys to navigate through html form in a row-table...<br>
 </p>
 <form name="form2" method="post" action="" id="form1">
 <table>
-  <tbody>
-    <tr>
-      <th width="78">ITEMS</th>
-      <th width="508">VALUES</th>
-    </tr>
-    <tr>
-      <td nowrap>Name of Table</td>
-      <td><label>
-        <input name="table_name" type="text" id="table_name" value="table name here..." size="40">
-      </label></td>
-    </tr>
-    <tr>
-      <td nowrap>Table</td>
-      <td><table>
         <tr>
           <th>#</th>
           <th><span>name</span></th>
@@ -95,14 +81,7 @@ $(document).ready(function() {
           <td><textarea name="password[2]" cols="10" rows="1" id="password[2]" style="ime-mode: inactive;">password</textarea>
           </td>
         </tr>
-      </table></td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center"><input id="submit_button" focusindex="13" name="Submit" value="This is Submit Button" type="submit">
-          <input id="reset_button" focusindex="14" name="Reset" value="This is Reset" type="reset"></td>
-    </tr>
-  </tbody>
-</table>
+      </table>
 </form>
 <br>
 <br>
