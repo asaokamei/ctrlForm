@@ -1,5 +1,5 @@
-ctrlUDForm
-==========
+ctrlForm
+========
 
 a jQuery plug-in to navigate html form using ctrl+arrow keys.
 
@@ -12,28 +12,28 @@ it should since I have not tested yet with any other forms.
 
 requires jQuery and its plugin, hotkeys. 
 
-How to Use ctrlUDForm
+How to Use ctrlForm
 ---------------------
 
-include jQuery, hotkeys, and ctrlUDForm, and initiate ctrlUDForm 
+include jQuery, hotkeys, and ctrlForm, and initiate ctrlForm 
 specifying which form to control. 
 
     <script type="text/javascript" src="./vendor/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="./vendor/jquery.hotkeys.js"></script>
-    <SCRIPT type="text/javascript" src="./ctrlUDForm.js"></script>
+    <SCRIPT type="text/javascript" src="./ctrlForm.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-      $('form').ctrlUDForm();
+      $('form').ctrlForm();
     });
     </script>
 
 Options are:
 
-* `$('form').ctrlUDForm( {focus:3} );` 
+* `$('form').ctrlForm( {focus:3} );` 
 
     focus on 3rd elemnt in the form. default is 0.
 
-* `$('form').ctrlUDForm( {control:'ctrl'} );` 
+* `$('form').ctrlForm( {control:'ctrl'} );` 
 
     use ctrl key only to control the form. 
     default is ['ctrl','meta'].
