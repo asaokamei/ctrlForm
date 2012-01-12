@@ -1,11 +1,13 @@
 ctrlForm
 ========
 
-a jQuery plug-in to navigate html form using ctrl+arrow keys.
+Control html forms with ctrl+keys.
+
+a jQuery plug-in for moving through html form elements using ctrl+arrow keys.
 
 for Mac, meta+arrow keys works. 
 
-Inside a table style form (as often found in phpMyAdmin), this 
+Inside a table style form (a lot of arrays of rows), ctrlForm
 script lets you navigate element to element freely inside the 
 table like an Excel; goint left/right and up/down. Well, at least 
 it should since I have not tested yet with any other forms. 
