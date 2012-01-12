@@ -7,38 +7,40 @@ body {
 	padding: 10px;
 	padding-left:15px;
 	border-radius: 15px;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
 }
 
 h1 {
-    background: #f0f8ff;
+    background: #F0F0F0;
     font-size: 18px;
-    padding: 3px 0px 3px 5px;
+    padding: 15px 5px 15px 5px;
     border-left: 5px solid #6495ed;
-    border-bottom: 1px dotted #6495ed;
-	border-radius: 5px;
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
 	margin-left: -5px;
+	margin-right: -10px;
 }
 h2 {
-    background: #f0f8ff;
+    background: #F0F0F0;
     font-size: 14px;
     padding: 1px 0px 1px 5px;
     border-left: 3px solid #6495ed;
-    border-bottom: 1px dotted #6495ed;
-	border-radius: 3px;
 	margin-left: -3px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 }
 table {
-  border: #9FBFCE solid 2px;
+  border: #CCCCCC solid 2px;
   width: 80%;
   border-collapse:collapse;
-  
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
+	margin:auto;
 }
 th {
-  background-color: #f0f8ff;
-  border: #BDD3DD solid 1px;
+  background-color: #F0F0F0;
+  border: #E0E0E0 solid 1px;
   padding:3px;
 }
 td {
-  border: #BDD3DD solid 1px;
+  border: #F0F0F0 solid 1px;
   padding:2px;
 }
