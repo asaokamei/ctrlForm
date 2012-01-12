@@ -3,9 +3,9 @@
 (function($) {
     // +--------------------------------------------------------------+
     /**
-     * ctrlUDForm (control Up/Down in Form) plug-in for jQuery. 
+     * ctrlForm (control Up/Down in Form) plug-in for jQuery. 
      */
-    $.fn.ctrlUDForm = function( config ) {
+    $.fn.ctrlForm = function( config ) {
         // defaults
         var defaults = {
             /** element # to focus */
