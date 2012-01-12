@@ -10,7 +10,8 @@
         var defaults = {
             /** element # to focus */
             focus: 0,
-            control: [ 'ctrl', 'meta' ]
+            control: [ 'ctrl', 'meta' ],
+            onEnter: false
         };
         var options = $.extend( defaults, config );
         
@@ -45,6 +46,23 @@
             $(jFormElem).bind( 'keydown', val + '+down',  formDown );
             $(jFormElem).bind( 'keydown', val + '+up',    formUp );
         });
+        // bind with Enter key
+        if( options.onEnter ) {
+            $(jFormElem).bind( 'keydown', 'return', onEnter );
+        };
+        // +--------------------------------------------------+
+        /**
+         * enter key: go to the next element but textarea and buttons.
+         */
+        function onEnter() {
+            var keyPropagate = true;
+            if( !focusElem ) return keyPropagate;
+            if( !$(focusElem).data( 'focusIndex' ) ) return keyPropagate;
+            if(  $(focusElem).get(0).tagName == 'TEXTAREA' ) return keyPropagate;
+            if(  $(focusElem).attr( 'type' ) == 'submit' ) return keyPropagate;
+            if(  $(focusElem).attr( 'type' ) == 'reset' ) return keyPropagate;
+            return formRight();
+        }
         // +--------------------------------------------------+
         /**
          * Ctrl+RIGHT: go to the next element.
