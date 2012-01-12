@@ -23,7 +23,11 @@ specifying which form to control.
     <SCRIPT type="text/javascript" src="./ctrlForm.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-      $('form').ctrlForm();
+      $('form').ctrlForm( {
+        focus: 3,
+        control: 'ctrl',
+        onEnter: true
+      } );
     });
     </script>
 
@@ -37,6 +41,11 @@ Options are:
 
     use ctrl key only to control the form. 
     default is ['ctrl','meta'].
+
+* `$('form').ctrlForm( {onEnter:true} );` 
+
+    enter key acts as ctrl+left, except for textarea, submit, and reset buttons.
+    default is false.
 
 
 Table Structure
