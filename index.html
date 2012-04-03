@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="ctrlForm : uses up/down keys to navigate through html form. " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ctrlForm</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/asaokamei/ctrlForm">Fork Me on GitHub</a>
+
+          <h1 id="project_title">ctrlForm</h1>
+          <h2 id="project_tagline">uses up/down keys to navigate through html form. </h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/asaokamei/ctrlForm/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/asaokamei/ctrlForm/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>ctrlForm</h1>
+
+<p>Control html forms with ctrl+keys.</p>
+
+<p>a jQuery plug-in for moving through html form elements using ctrl+arrow keys.</p>
+
+<p>for Mac, meta+arrow keys works. </p>
+
+<p>Inside a table style form (a lot of arrays of rows), ctrlForm
+script lets you navigate element to element freely inside the 
+table like an Excel; goint left/right and up/down. Well, at least 
+it should since I have not tested yet with any other forms. </p>
+
+<p>requires jQuery and its plugin, hotkeys. </p>
+
+<h2>How to Use ctrlForm</h2>
+
+<p>include jQuery, hotkeys, and ctrlForm, and initiate ctrlForm 
+specifying which form to control. </p>
+
+<pre><code>&lt;script type="text/javascript" src="./vendor/jquery-1.7.1.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="./vendor/jquery.hotkeys.js"&gt;&lt;/script&gt;
+&lt;SCRIPT type="text/javascript" src="./ctrlForm.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+$(document).ready(function() {
+  $('form').ctrlForm( {
+    focus: 3,
+    control: 'ctrl',
+    onEnter: true
+  } );
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>Options are:</p>
+
+<ul>
+<li>
+<p><code>$('form').ctrlForm( {focus:3} );</code> </p>
+
+<p>focus on 3rd elemnt in the form. default is 0.</p>
+</li>
+<li>
+<p><code>$('form').ctrlForm( {control:'ctrl'} );</code> </p>
+
+<p>use ctrl key only to control the form. 
+default is ['ctrl','meta'].</p>
+</li>
+<li>
+<p><code>$('form').ctrlForm( {onEnter:true} );</code> </p>
+
+<p>enter key acts as ctrl+left, except for textarea, submit, and reset buttons.
+default is false.</p>
+</li>
+</ul><h2>Table Structure</h2>
+
+<p>This scripts judges if an element is inside a table by checking 
+if the name contains '[' charactor. example: <code>email[3]</code>. The 
+body of the name (without [) is considered as its name of the element. </p>
+
+<p>if a focused element has [ charctor in its name, ctrlUDForm tries to 
+find a next element with name having the same name, i.e. <code>email[4]</code>.</p>
+
+<p>As you can see, ctrlUDForm does not check the value of index nor table 
+structure, and therefore it may not work well for certain case...</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">ctrlForm maintained by <a href="https://github.com/asaokamei">asaokamei</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
